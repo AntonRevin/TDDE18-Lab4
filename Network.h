@@ -7,14 +7,15 @@
 using namespace std;
 
 class Network {
-    private:
-        vector<Component*> components;
-        void StepSimulation(){};
-    public:
-        Network(){};
-        void Simulate(){};
-        void AddComponent(Component* const _newComponent){};
-        ~Network(){};
+   private:
+    vector<Component*> components;
+    void StepSimulation();
+
+   public:
+    Network();
+    void Simulate();
+    void AddComponent(Component* const _newComponent);
+    ~Network();
 };
 
 #endif

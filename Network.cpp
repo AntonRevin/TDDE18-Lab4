@@ -4,11 +4,11 @@
     Network > Constructor
 */
 Network::Network()
-    :{
-    }
-    
+    : components{} {
+}
+
 /*
     Network > Destructor
 */
-Network::~Network(){
+Network::~Network() {
 }
