@@ -1,5 +1,5 @@
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#ifndef CONNECTION_H
+#define CONNECTION_H
 
 class Component{
     private:
