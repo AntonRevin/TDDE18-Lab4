@@ -3,7 +3,7 @@
 /*
     Component > Constructor
 */
-Component::Component(string _name, Connection _left, Connection _right)
+Component::Component(string const _name, Connection* const _left, Connection* const _right)
     : name{_name}, left{_left}, right{_right} {
 }
 
