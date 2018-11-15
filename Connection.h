@@ -6,7 +6,9 @@ using namespace std;
 class Connection{
     private:
     public:
+        Connection(){}
         double Charge;
+        ~Connection(){};
 };
 
 #endif
