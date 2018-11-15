@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.script": "lua",
-        "*.gui_script": "lua",
-        "vector": "cpp"
-    }
-}
