@@ -7,10 +7,21 @@ Resistor::Resistor(string const _name, Connection* const _left, Connection* cons
     : Component(_name, _left, _right), resistance{_resistance} {
 }
 
-void Resistor::update() {
+/*
+    Resistor > Update 
+*/
+void Resistor::Update(double* const _timeStep) {
+    double potential{abs(left->Charge - right->Charge)};
+    double change{(potential / resistance) * (*_timeStep)};
+    int direction{((left->Charge <= right->Charge) ? 1 : -1)};
+    left->Charge += direction * change;
+    right->Charge -= direction * change;
 }
 
-double Resistor::getCharge() {
+/*
+    Resistor > Get Charge 
+*/
+double Resistor::GetCharge() {
 }
 
 /*

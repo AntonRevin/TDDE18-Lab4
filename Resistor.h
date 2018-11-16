@@ -11,8 +11,8 @@ class Resistor : public Component {
 
    public:
     Resistor(string const _name, Connection* const _left, Connection* const _right, double const _resistance);
-    void update();
-    double getCharge();
+    void Update(double* const _timeStep);
+    double GetCharge();
     ~Resistor();
 };
 

@@ -13,8 +13,8 @@ class Component {
     Connection* left;
     Connection* right;
     string name;
-    virtual void update();
-    virtual double getCharge();
+    virtual void Update(double* const _timeStep);
+    virtual double GetCharge();
     ~Component();
 };
 
