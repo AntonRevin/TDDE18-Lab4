@@ -1,20 +1,21 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include <Connection.h>
 #include <string>
+#include "Connection.h"
 
 using namespace std;
 
 class Component {
-   private:
+   protected:
    public:
     Component(string const _name, Connection* const _left, Connection* const _right);
     Connection* left;
     Connection* right;
     string name;
-    virtual void Update(double* const _timeStep);
-    virtual double GetCharge();
+    virtual void Update(double const _timeStep);
+    virtual double GetCurrent();
+    double GetVoltage();
     ~Component();
 };
 

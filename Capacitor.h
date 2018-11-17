@@ -1,7 +1,7 @@
 #ifndef CAPACITOR_H
 #define CAPACITOR_H
 
-#include <Component.h>
+#include "Component.h"
 
 using namespace std;
 
@@ -11,9 +11,9 @@ class Capacitor : public Component {
     double stored;
 
    public:
-    Capacitor::Capacitor(string const _name, Connection* const _left, Connection* const _right, double const _capacitance);
-    void Update(double* const _timeStep);
-    double GetCharge();
+    Capacitor(string const _name, Connection* const _left, Connection* const _right, double const _capacitance);
+    void Update(double const _timeStep);
+    double GetCurrent();
     ~Capacitor();
 };
 

@@ -1,4 +1,4 @@
-#include <Capacitor.h>
+#include "Capacitor.h"
 
 /*
     Capacitor > Constructor
@@ -10,13 +10,20 @@ Capacitor::Capacitor(string const _name, Connection* const _left, Connection* co
 /*
     Capacitor > Update one Time Step
 */
-void Capacitor::Update(double* const _timeStep) {
+void Capacitor::Update(double const _timeStep) {
+    double potential{abs(left->Charge - right->Charge)};
+    double change{(potential - stored) * capacitance * (_timeStep)};
+    int direction{((left->Charge <= right->Charge) ? 1 : -1)};
+    left->Charge += direction * change;
+    right->Charge -= direction * change;
+    stored += change;
 }
 
 /*
-    Capacitor > Get Charge
+    Capacitor > Get Current
 */
-double Capacitor::GetCharge() {
+double Capacitor::GetCurrent() {
+    return capacitance * (GetVoltage() - stored);
 }
 
 /*

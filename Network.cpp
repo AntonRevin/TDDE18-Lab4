@@ -1,10 +1,10 @@
-#include <Network.h>
+#include "Network.h"
 
 /*
     Network > Constructor
 */
-Network::Network(ostream* const _outputStream)
-    : components{}, outputStream{_outputStream} {
+Network::Network()
+    : components{} {
 }
 
 /*
@@ -17,18 +17,20 @@ void Network::AddComponent(Component* const _newComponent) {
 /*
     Network > Public Simulation Function
 */
-void Network::Simulate(int* const _iterations, double* const _timeStep, int* const _outputLines) {
+void Network::Simulate(int const _iterations, double const _timeStep, int const _outputLines) {
     PrintHeader();
-    for (int i = 1; i <= *_iterations; i++) {
+    for (int i = 1; i <= _iterations; i++) {
         StepSimulation(_timeStep);
-        PrintUpdate();
+        if (i % ((_iterations) / (_outputLines)) == 0) {
+            PrintUpdate();
+        }
     }
 }
 
 /*
     Network > Private Step Simulation 
 */
-void Network::StepSimulation(double* const _timeStep) {
+void Network::StepSimulation(double const _timeStep) {
     for (Component* c : components) {
         c->Update(_timeStep);
     }
@@ -38,27 +40,33 @@ void Network::StepSimulation(double* const _timeStep) {
     Network > Print Update Line
 */
 void Network::PrintUpdate() {
-    *outputStream << setw(5);
+    cout << setprecision(2);
     for (Component* c : components) {
-        // TODO
+        cout << setw(6);
+        cout << c->GetVoltage();
+        cout << setw(6);
+        cout << c->GetCurrent();
     }
+    cout << endl;
 }
 
 /*
     Network > Print Header Line(s)
 */
 void Network::PrintHeader() {
-    *outputStream << setw(11);
-    string temp{};
+    cout << fixed;
     for (Component* c : components) {
-        temp += c->name;
+        cout << setw(12);
+        cout << c->name;
     }
-    *outputStream << temp << endl;
-    temp = "";
+    cout << endl;
     for (Component* c : components) {
-        temp += " Volt  Curr ";
+        cout << setw(6);
+        cout << "Volt";
+        cout << setw(6);
+        cout << "Curr";
     }
-    *outputStream << temp << endl;
+    cout << endl;
 }
 
 /*

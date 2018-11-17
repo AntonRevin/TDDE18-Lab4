@@ -1,4 +1,4 @@
-#include <Battery.h>
+#include "Battery.h"
 
 /*
     Battery > Constructor
@@ -8,16 +8,22 @@ Battery::Battery(string const _name, Connection* const _left, Connection* const 
 }
 
 /*
-    Battery > 
+    Battery > Update Simulation one step
 */
-void Battery::Update(double* const _timeStep) {
-}
-
-double Battery::GetCharge() {
+void Battery::Update(double const _timeStep) {
+    left->Charge = 0;
+    right->Charge = voltage;
 }
 
 /*
-    Resistor > Destructor
+    Battery > Get Current
+*/
+double Battery::GetCurrent() {
+    return 0;
+}
+
+/*
+    Battery > Destructor
 */
 Battery::~Battery() {
 }
