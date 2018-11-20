@@ -23,7 +23,7 @@ void Capacitor::Update(double const _timeStep) {
     Capacitor > Get Current
 */
 double Capacitor::GetCurrent() {
-    return capacitance * (GetVoltage() - stored);
+    return (capacitance * (GetVoltage() - stored));
 }
 
 /*

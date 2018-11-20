@@ -11,8 +11,8 @@ Battery::Battery(string const _name, Connection* const _left, Connection* const 
     Battery > Update Simulation one step
 */
 void Battery::Update(double const _timeStep) {
-    left->Charge = 0;
-    right->Charge = voltage;
+    left->Charge = voltage;
+    right->Charge = 0;
 }
 
 /*
